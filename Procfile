@@ -1,0 +1,1 @@
+web: gunicorn firsthand-boutique.wsgi:application
