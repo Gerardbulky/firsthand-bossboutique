@@ -21,11 +21,12 @@ from home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
     path('accounts/', include('allauth.urls')),
+    path('', views.index, name='index'),
     path('products/', include('products.urls')),
     path('bag/', include('bag.urls')),
-    path('checkout/', include('checkout.urls'))
+    path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
