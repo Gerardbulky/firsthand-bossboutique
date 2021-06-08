@@ -41,10 +41,15 @@
                         {% with product=item.product %}
                         <tr>
                             <td class="num">
-                                <a href="{{ product.image.url }}">
-                                    <img class="img-thumbnail" alt="Responsive image" src="{% if product.image %}{{ product.image.url }}
-                                    {% else %}{% static 'img/no_image.png' %}{% endif %}">
-                                </a>
+                                {% if product.image %}
+                                    <a href="{{ product.image.url }}">
+                                        <img class="img-thumbnail" alt="Responsive image" src="{{ product.image.url }}" alt="{{ item.product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class='img-thumbnail' src="{% static 'img/noimage.png' %}" alt="{{ item.product.name }}">
+                                    </a>
+                                {% endif %}
                             </td>
                             <td class="num small">
                                 <p class="my-0"><strong>{{ product.name }}</strong></p>
