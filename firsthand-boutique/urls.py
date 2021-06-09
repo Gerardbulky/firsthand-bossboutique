@@ -17,12 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', views.index, name='index'),
+    path('', include('home.urls')),
     path('products/', include('products.urls')),
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
